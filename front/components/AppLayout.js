@@ -3,11 +3,15 @@ import Link from 'next/link';
 import {Menu, Input, Space, Row, Col} from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined, SearchOutlined, AudioOutlined, ExperimentTwoTone, ProfileTwoTone, IdcardTwoTone} from '@ant-design/icons';
 import 'antd/dist/antd.css';
-
+import { useState } from 'react';
+import UserProfile from '../components/UserProfile.js'
+import LoginForm from '../components/LoginForm.js'
 
 
 const AppLayout = ({children}) =>
 {
+    const [isLog,setLog] = useState(false);
+
     return(
         <div>
             <Menu mode='horizontal'>
@@ -39,15 +43,15 @@ const AppLayout = ({children}) =>
 
             </Menu.Item>
             </Menu>
-            <Row>
+            <Row gutter={8}>
                 <Col xs={24} md={6}>
-                    왼쪽메뉴
+                    {isLog ? <UserProfile/> : <LoginForm/>}
                 </Col>
                 <Col xs={24} md={12}>
                     {children}
                 </Col>
                 <Col xs={24} md={6}>
-                    오른쪽메뉴
+                    <a href="https://github.com/turfguy" target="_blank" rel='noopener norefferer'> Made by @turfguy </a>
                 </Col>
 
             </Row>
