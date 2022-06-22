@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {Menu, Input, Space, Row, Col} from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined, SearchOutlined, AudioOutlined, ExperimentTwoTone, ProfileTwoTone, IdcardTwoTone} from '@ant-design/icons';
 import 'antd/dist/antd.css';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import UserProfile from '../components/UserProfile.js'
 import LoginForm from '../components/LoginForm.js'
 
@@ -45,7 +45,7 @@ const AppLayout = ({children}) =>
             </Menu>
             <Row gutter={8}>
                 <Col xs={24} md={6}>
-                    {isLog ? <UserProfile/> : <LoginForm/>}
+                    {isLog ? <UserProfile setLog={setLog} /> : <LoginForm setLog = {setLog} />}
                 </Col>
                 <Col xs={24} md={12}>
                     {children}

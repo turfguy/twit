@@ -1,25 +1,34 @@
 import React, { useCallback, useState } from "react";
 import { Form , Input, Button} from 'antd';
 import Link from 'next/link';
+import styled from 'styled-components';
+import AppLayout  from "./AppLayout.js";
+import PropTypes from 'prop-types';
 
-const LoginForm = () => {
+const LoginForm = ({setLog}) => {
     const [id, setId] = useState ('');
     const [pw, setPw] = useState ('');
     const [pwCheck, setPwCheck] = useState ('');
-    const onChangeId = useCallback(()=>{
+    const onChangeId = useCallback((e)=>{
             
         setId(e.target.value);
 
     }, []);
-    const onChangePw = useCallback(()=>{
+const onChangePw = useCallback((e)=>{
             
         setPw(e.target.value);
         
     }, []);
 
+const onSubmitForm = useCallback(()=>
+    {       
+            console.log(id,pw);
+            setLog(true);
+        
+    },[id,pw]);
 
     return (
-        <Form>
+        <Form onFinish={onSubmitForm}>
             <br></br>
             <div>
                 <label htmlFor="user-id">아이디</label>
@@ -32,10 +41,9 @@ const LoginForm = () => {
                 <br></br>
                 <Input name="user-pw" value={pw}  type="password" onChange={onChangePw} required/>
             </div>
-            <div>
-                    <br></br>
-                    <Button type="primary" htmlType="submit" loading={false} >Login</Button>
-                    <Link href="/signup"><a><Button>회원가입</Button></a></Link>
+            <div style={{marginTop:20}}>
+                <Button type="primary" htmlType="submit" loading={false} >Login</Button>
+                <Link href="/signup"><a><Button>회원가입</Button></a></Link>
             </div>
 
         </Form>
