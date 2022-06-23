@@ -12,7 +12,9 @@ const UserProfile = () => {
         </>]}
      >
         <Card.Meta avatar={<Avatar>T</Avatar>} title="test"/>
+        <br></br>
         <Button>로그아웃</Button>
+            
     </Card>
 
     )};

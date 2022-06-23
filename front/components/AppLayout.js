@@ -1,7 +1,7 @@
 import PropTypes  from 'prop-types';
 import Link from 'next/link';
 import {Menu, Input, Space, Row, Col} from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined, SearchOutlined, AudioOutlined, ExperimentTwoTone, ProfileTwoTone, IdcardTwoTone} from '@ant-design/icons';
+import { MailOutlined, AppstoreOutlined, SettingOutlined, SearchOutlined, AudioOutlined, ExperimentTwoTone, ProfileTwoTone, IdcardTwoTone, TwitterCircleFilled, TwitterSquareFilled} from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import { useState, useCallback } from 'react';
 import UserProfile from '../components/UserProfile.js'
@@ -15,10 +15,10 @@ const AppLayout = ({children}) =>
     return(
         <div>
             <Menu mode='horizontal'>
-                <Menu.Item  icon={<ExperimentTwoTone />}>
+                <Menu.Item  icon={<TwitterSquareFilled />}>
                 <Link href="/">
                     <a>
-                        실험실
+                        트위터맛
                     </a>
                 </Link>
                
@@ -37,6 +37,7 @@ const AppLayout = ({children}) =>
 
             <Menu.Item icon={<IdcardTwoTone />}>
             <Link href="/signup">
+              
                 <a>회원가입</a>
                 </Link>
 
