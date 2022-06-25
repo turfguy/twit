@@ -1,4 +1,3 @@
-import PropTypes  from 'prop-types';
 import Link from 'next/link';
 import {Menu, Input, Space, Row, Col} from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined, SearchOutlined, AudioOutlined, ExperimentTwoTone, ProfileTwoTone, IdcardTwoTone, TwitterCircleFilled, TwitterSquareFilled} from '@ant-design/icons';
@@ -6,11 +5,14 @@ import 'antd/dist/antd.css';
 import { useState, useCallback } from 'react';
 import UserProfile from '../components/UserProfile.js'
 import LoginForm from '../components/LoginForm.js'
+import { useSelector } from 'react-redux';
+import wrapper from '../store/configureStore.js';
+
 
 
 const AppLayout = ({children}) =>
 {
-    const [isLog,setLog] = useState(false);
+    const isLog = useSelector((state)=> state.user.isLog);
 
     return(
         <div>
@@ -46,7 +48,7 @@ const AppLayout = ({children}) =>
             </Menu>
             <Row gutter={8}>
                 <Col xs={24} md={6}>
-                    {isLog ? <UserProfile setLog={setLog} /> : <LoginForm setLog = {setLog} />}
+                    {isLog ? <UserProfile  /> : <LoginForm />}
                 </Col>
                 <Col xs={24} md={12}>
                     {children}
@@ -61,11 +63,7 @@ const AppLayout = ({children}) =>
     );
 };
 
-AppLayout.propTypes = {
-    children : PropTypes.node.isRequired,
 
 
-};
 
-
-export default AppLayout ;
+export default wrapper.withRedux(AppLayout);

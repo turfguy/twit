@@ -3,9 +3,11 @@ import { Form , Input, Button} from 'antd';
 import Link from 'next/link';
 import styled from 'styled-components';
 import AppLayout  from "./AppLayout.js";
-import PropTypes from 'prop-types';
+import {useDispatch} from 'react-redux';
+import { loginAction } from "../reducers/index.js";
 
-const LoginForm = ({setLog}) => {
+const LoginForm = () => {
+    const dispatch = useDispatch();
     const [id, setId] = useState ('');
     const [pw, setPw] = useState ('');
     const [pwCheck, setPwCheck] = useState ('');
@@ -23,8 +25,7 @@ const onChangePw = useCallback((e)=>{
 const onSubmitForm = useCallback(()=>
     {       
             console.log(id,pw);
-            setLog(true);
-        
+            dispatch(loginAction({id,pw}));    
     },[id,pw]);
 
 

@@ -1,7 +1,33 @@
 const initialState = {
-    name: 'Jacob'
-    ,age : '25'
-    ,pw : '123'
+    user : {
+        isLog: false,
+        user : null,
+        signUpData: {},
+        loginData : {},
+    },
+    post : {
+        mainPosts:[],
+
+    }
+}
+
+export const loginAction = (data)=>
+{
+    return{
+
+        type : 'LOG_IN',
+        data
+    
+    }
+    
+}
+export const logoutAction = (data)=>
+{
+    return{
+
+        type : 'LOG_OUT',    
+    }
+    
 }
 
 const changeNick = (data)=>{
@@ -15,11 +41,29 @@ const changeNick = (data)=>{
 const rootReducer = (state = initialState , action) =>{
     switch(action.type){
         
-        case 'CHANGE_NICK':
+        case 'LOG_IN':
             return {
                 ...state,
-                name : action.data,
+                user :{
+                    ...state.user,
+                    isLog : true,
+                    user : action.data,
 
+                }
+        
+            };
+        case 'LOG_OUT':
+            return{
+                ...state,
+                user :{
+                    ...state.user,
+                    isLog : false,
+                    user : null,
+            }
+        };
+        default:
+            return{
+              ...state,
             }
     }
 }; 

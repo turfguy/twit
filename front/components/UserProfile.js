@@ -1,7 +1,16 @@
-import React  from "react";
+import React, { useCallback }  from "react";
 import {Avatar, Button, Card} from 'antd';
+import { useDispatch } from 'react-redux';
+import { loginAction,logoutAction } from "../reducers";
 
 const UserProfile = () => {
+    const dispatch = useDispatch();
+
+const onLogOut = useCallback(()=>{
+    dispatch(logoutAction());
+    console.log('clicked');
+},[])
+
     return(
     <Card 
     actions={[
@@ -13,7 +22,7 @@ const UserProfile = () => {
      >
         <Card.Meta avatar={<Avatar>T</Avatar>} title="test"/>
         <br></br>
-        <Button>로그아웃</Button>
+        <Button Button type="primary" htmlType="submit" loading={false}>로그아웃</Button>
             
     </Card>
 
