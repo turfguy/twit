@@ -1,3 +1,5 @@
+import {HYDRATE} from 'next-redux-wrapper'
+
 const initialState = {
     user : {
         isLog: false,
@@ -40,7 +42,12 @@ const changeNick = (data)=>{
 }
 const rootReducer = (state = initialState , action) =>{
     switch(action.type){
-        
+        case HYDRATE:
+            console.log('HYDRATE')
+            return{
+                ...state,
+                ...action.payload
+            }
         case 'LOG_IN':
             return {
                 ...state,

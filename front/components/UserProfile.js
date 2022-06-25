@@ -1,10 +1,14 @@
 import React, { useCallback }  from "react";
-import {Avatar, Button, Card} from 'antd';
+import {Avatar, Button, Card, Form} from 'antd';
 import { useDispatch } from 'react-redux';
 import { loginAction,logoutAction } from "../reducers";
+import styled from "styled-components";
 
+const style = styled.div`
+    marginTop: 
+`;
 const UserProfile = () => {
-    const dispatch = useDispatch();
+const dispatch = useDispatch();
 
 const onLogOut = useCallback(()=>{
     dispatch(logoutAction());
@@ -12,7 +16,9 @@ const onLogOut = useCallback(()=>{
 },[])
 
     return(
+    <>
     <Card 
+    style={{marginTop: '10px'}}
     actions={[
         <>
         <div key="twit">작성글<br/>0</div>
@@ -22,10 +28,10 @@ const onLogOut = useCallback(()=>{
      >
         <Card.Meta avatar={<Avatar>T</Avatar>} title="test"/>
         <br></br>
-        <Button Button type="primary" htmlType="submit" loading={false}>로그아웃</Button>
+        <Button Button type="primary" tmlType="submit" loading={false}>로그아웃</Button>
             
     </Card>
-
+    </>
     )};
 
 export default UserProfile;
