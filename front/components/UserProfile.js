@@ -12,7 +12,7 @@ const dispatch = useDispatch();
 
 const onLogOut = useCallback(()=>{
     dispatch(logoutAction());
-    console.log('clicked');
+  
 },[])
 
     return(
@@ -28,7 +28,7 @@ const onLogOut = useCallback(()=>{
      >
         <Card.Meta avatar={<Avatar>T</Avatar>} title="test"/>
         <br></br>
-        <Button Button type="primary" tmlType="submit" loading={false}>로그아웃</Button>
+        <Button Button type="primary" onClick={onLogOut} loading={false}>로그아웃</Button>
             
     </Card>
     </>
