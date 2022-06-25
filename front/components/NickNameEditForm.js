@@ -3,6 +3,7 @@ import {Form, Input} from 'antd';
 
 const NickNameEditForm =()=>{
     const style = useMemo(()=>({
+        marginTop : '20px',
         marginBottom : '20px',
         border : '1px solid #d9d9d9',
         padding : '20px'

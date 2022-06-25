@@ -1,10 +1,11 @@
 import AppLayout from "../components/AppLayout";
 import Head from 'next/head';
-import { useCallback, useState } from "react";
+import { useCallback, useState, useMemo } from "react";
 import { Checkbox, Form, Input,  Button} from 'antd';
 import styled from 'styled-components';
 import Password from "antd/lib/input/Password";
 import useInput from "../hooks/useInput";
+
 
 const errorMessage = styled.div`
     color : red;
@@ -12,6 +13,9 @@ const errorMessage = styled.div`
 `;
 
 const SignUp = () => {
+    const style = useMemo(()=>({
+        marginTop: '20px'
+    }),[]);
     const [id,onChangeId] = useInput('');
     const [nick,onChangeNick] = useInput('');
     const [pw,onChangePw] = useInput('');
@@ -47,7 +51,7 @@ const SignUp = () => {
         <Head>
             <title>회원가입</title>
         </Head>
-        <Form onFinish={onSubmit}>
+        <Form onFinish={onSubmit} style={style}>
             <div>
                 <label htmlFor="user-id" >아이디</label> 
                 <br/>
