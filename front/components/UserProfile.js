@@ -1,9 +1,8 @@
 import React, { useCallback }  from "react";
 import {Avatar, Button, Card, Form} from 'antd';
 import { useDispatch } from 'react-redux';
-import user from '../reducers/user'
+import {loginAction, logoutAction} from '../reducers/user'
 import styled from "styled-components";
-
 const style = styled.div`
     marginTop: 
 `;

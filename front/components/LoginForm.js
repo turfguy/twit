@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import AppLayout  from "./AppLayout.js";
 import {useDispatch} from 'react-redux';
-import user from '../reducers/user'
+import {loginAction,logoutAction} from '../reducers/user'
 
 const LoginForm = () => {
     const dispatch = useDispatch();
