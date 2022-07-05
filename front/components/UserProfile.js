@@ -1,7 +1,7 @@
 import React, { useCallback }  from "react";
 import {Avatar, Button, Card, Form} from 'antd';
 import { useDispatch } from 'react-redux';
-import { loginAction,logoutAction } from "../reducers";
+import user from '../reducers/user'
 import styled from "styled-components";
 
 const style = styled.div`
