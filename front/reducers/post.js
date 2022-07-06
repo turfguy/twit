@@ -37,7 +37,7 @@ const dummyPost = {
         nickname: '프란시스 은가누',
 
     },
-    content :  '상급 노하우 공유합니다 텔레그램: mother_lover ',
+    content :  '상급 노하우 공유합니다 O10-o123-43o3 톡 문의 ',
     Images: [],
     Comments : []
 
