@@ -1,5 +1,5 @@
 import { EllipsisOutlined,HeartTwoTone, HeartOutlined, MessageOutlined, RetweetOutlined, MessageTwoTone } from "@ant-design/icons";
-import { Button, Card, Popover } from "antd";
+import { Avatar, Button, Card, Popover } from "antd";
 import {ButtonGroup,  } from "antd/lib/button/button-group";
 import { useSelector } from "react-redux";
 import PropTypes from 'prop-types';
@@ -20,7 +20,7 @@ const PostCard = ({post})=>
     };
     function onToggleComment ()
     {
-        liked? setLiked(false): setLiked(true)
+        commentFormOpened? setCommmentFormOpened(false) : setCommmentFormOpened(true)
     };
     return(
         <div style={{marginBottom : 20 }}>
@@ -52,11 +52,17 @@ const PostCard = ({post})=>
             ]}
             >
                 <Card.Meta
-               
+                    avatar = {<Avatar>{post.User.nickname[0]}</Avatar>}
                     title = {post.User.nickname}
                     description={post.content}     
                 />
             </Card>
+            {commentFormOpened && 
+            (<div>
+                댓글창 열림
+            </div>)
+            }
+
         </div>
     );
 }
