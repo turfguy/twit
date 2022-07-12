@@ -20,7 +20,7 @@ const AppLayout = ({children}) =>
                 <Menu.Item  icon={<TwitterSquareFilled />}>
                 <Link href="/">
                     <a>
-                        트위터맛
+                        새키우기
                     </a>
                 </Link>
                

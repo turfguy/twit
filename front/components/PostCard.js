@@ -1,11 +1,12 @@
 import { EllipsisOutlined,HeartTwoTone, HeartOutlined, MessageOutlined, RetweetOutlined, MessageTwoTone } from "@ant-design/icons";
-import { Avatar, Button, Card, Popover } from "antd";
+import { Avatar, Button, Card, List, Popover } from "antd";
 import {ButtonGroup,  } from "antd/lib/button/button-group";
 import { useSelector } from "react-redux";
 import PropTypes from 'prop-types';
 import PostImages from "./PostImages";
 import { useState } from "react";
 import React from "react";
+import CommentForm from "./CommentForm";
 
 
 const PostCard = ({post})=>
@@ -30,7 +31,7 @@ const PostCard = ({post})=>
                 <RetweetOutlined key="retweet"/>,
                 liked? <HeartTwoTone twoToneColor="#eb2f96" key="heart" onClick={onToggleLike} /> : 
                 <HeartOutlined key="heart" onClick={onToggleLike}/> ,
-                commentFormOpened? <MessageTwoTone twoToneColor="#eb2f96" key="comment" onClick={onToggleComment}/>  
+                commentFormOpened? <MessageTwoTone twoToneColor="#00BFFF" key="comment" onClick={onToggleComment}/>  
                 :<MessageOutlined key="comment" onClick={onToggleComment} />,
                 <Popover key="more" content={(
                     <Button.Group>
@@ -59,7 +60,21 @@ const PostCard = ({post})=>
             </Card>
             {commentFormOpened && 
             (<div>
-                댓글창 열림
+                <CommentForm post={post}/>
+                <List
+                    header={`${post.Comments.length}개의 댓글`}
+                    itemLayout="horizontal"
+                    dataSource={post.Comments}
+                    renderItem= {(item)=>{
+                        <li>
+                            <Comment
+                                author={item.User.nickname}
+                                avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
+                                content={item.content}
+                            />
+                        </li>
+                    }}
+                 />
             </div>)
             }
 
