@@ -9,17 +9,48 @@ export const initialState = {
 
             },
             content :  'selfie #오늘의훈남 #팔로우 #맞팔',
-            Images: [],
-            Comments: [{
-                User:{ nickname: '데이나 화이트',},
-                content: '잘나왔네요.^^',
-            },
-            {
-                User:{ nickname: '알렉산더 볼카노프스키',},
-                content: '사랑해',
-            }]
+            Images: [
 
-        }],
+            ],
+
+            Comments: 
+            [
+                    {
+                      
+                        User:{ nickname: '데이나 화이트',},
+                        content: '잘나왔네요.^^',
+                    },
+                    {
+                        User:{ nickname: '알렉산더 볼카노프스키',},
+                        content: '함뜰까?',
+                    }]
+            },   
+            {
+                id: 2,
+                User : 
+                {
+                    id: 2,
+                    nickname: '닉워커',
+    
+                },
+                content :  '역시 슬림한게 좋아',
+                Images: [
+                 
+                ],
+    
+                Comments: 
+                [
+                        {
+                            User:{ nickname: '크리스 범스테드',},
+                            content: '잘나왔네요.^^',
+                        },
+                        {
+                            User:{ nickname: '간고',},
+                            content: '하체가 도봉구 고등부급이네요..',
+                        }]
+                },
+            
+        ],
     imagePaths: [],
     postAdded : false
 };

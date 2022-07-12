@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const PostImages = ({images})=>
 {
     return(
-        <>
+        < >
             제작중
         </>
     )

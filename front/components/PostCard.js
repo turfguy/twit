@@ -1,8 +1,8 @@
 import { EllipsisOutlined,HeartTwoTone, HeartOutlined, MessageOutlined, RetweetOutlined, MessageTwoTone } from "@ant-design/icons";
-import { Avatar, Button, Card, List, Popover } from "antd";
+import { Avatar, Button, Card, List, Popover,Comment } from "antd";
 import {ButtonGroup,  } from "antd/lib/button/button-group";
 import { useSelector } from "react-redux";
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import PostImages from "./PostImages";
 import { useState } from "react";
 import React from "react";
@@ -61,11 +61,12 @@ const PostCard = ({post})=>
             {commentFormOpened && 
             (<div>
                 <CommentForm post={post}/>
+                
                 <List
                     header={`${post.Comments.length}개의 댓글`}
                     itemLayout="horizontal"
                     dataSource={post.Comments}
-                    renderItem= {(item)=>{
+                    renderItem= {(item)=>(
                         <li>
                             <Comment
                                 author={item.User.nickname}
@@ -73,7 +74,7 @@ const PostCard = ({post})=>
                                 content={item.content}
                             />
                         </li>
-                    }}
+                )}
                  />
             </div>)
             }
@@ -82,14 +83,14 @@ const PostCard = ({post})=>
     );
 }
 
-PostCard.PropTypes = {
-    post : PropTypes.shape({
-        id : PropTypes.number ,
-        User : PropTypes.object,
-        content : PropTypes.string,
-        createdAt : PropTypes.object,
-        Comments : PropTypes.arrayOf(PropTypes.object),
-        Images : PropTypes.arrayOf(PropTypes.object),
+PostCard.propTypes = {
+    post : propTypes.shape({
+        id : propTypes.number ,
+        User : propTypes.object,
+        content : propTypes.string,
+        createdAt : propTypes.object,
+        Comments : propTypes.arrayOf(propTypes.object),
+        Images : propTypes.arrayOf(propTypes.object),
         
     }).isRequired,
 
