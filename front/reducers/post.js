@@ -42,7 +42,7 @@ export const initialState = {
                 [
                         {
                             User:{ nickname: '크리스 범스테드',},
-                            content: '잘나왔네요.^^',
+                            content: '너는 벌크좀해라',
                         },
                         {
                             User:{ nickname: '간고',},
