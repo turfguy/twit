@@ -37,6 +37,21 @@ const Header = styled.div`
     }
 `;
 
+const SlickWrapper = styled.div`
+    height : calc(100% -44px);
+    background : #090909;
+`;
+
+const ImgWrapper = styled.div`
+    padding : 32px;
+    text-align : center;
+
+    &img{
+        margin : 0 auto;
+        max-height: 750px;
+
+    }
+`;
 
 
 const ImagesZoom = ({ images, onClose })=>
@@ -49,7 +64,7 @@ const ImagesZoom = ({ images, onClose })=>
                 <h1>상세이미지</h1>
                 <button onClick={onClose}>X</button>
             </Header>
-            <div>
+            <SlickWrapper>
                 <div>
                     <Slick 
                         initialSlide={0}
@@ -61,13 +76,13 @@ const ImagesZoom = ({ images, onClose })=>
 
                     >
                         {images.map((v)=>(
-                            <div key={v.src}>
+                            <ImgWrapper key={v.src}>
                                 <img src={v.src} alt={v.src}/>
-                            </div>  
+                            </ImgWrapper>  
                         ))}
                     </Slick>  
                 </div>
-            </div>
+                </SlickWrapper>
             </Overlay>                   
       
     );
