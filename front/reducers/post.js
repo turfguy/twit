@@ -10,7 +10,7 @@ export const initialState = {
             },
             content :  'selfie #오늘의훈남 #팔로우 #맞팔',
             Images: [
-
+                    {src : 'https://a.espncdn.com/media/motion/2020/0309/dm_200309_ufc_adesanya_helwani_int/dm_200309_ufc_adesanya_helwani_int.jpg'},
             ],
 
             Comments: 
@@ -23,7 +23,13 @@ export const initialState = {
                     {
                         User:{ nickname: '알렉산더 볼카노프스키',},
                         content: '함뜰까?',
-                    }]
+                    },
+                    {
+                        User:{ nickname: '파울로 코스타',},
+                        content: '내 사진 지우라고',
+                    }
+                    
+                ],
             },   
             {
                 id: 2,
@@ -35,6 +41,9 @@ export const initialState = {
                 },
                 content :  '역시 슬림한게 좋아',
                 Images: [
+                    {src : 'https://pbs.twimg.com/media/EmAbI01VkAAR8t-.jpg'},
+                    {src : 'https://pbs.twimg.com/media/FO2gZ3RUYAQ3Jge.jpg'},
+                    {src : 'https://i.pinimg.com/736x/9b/ae/2c/9bae2cca61950d451e659d5046e7604b.jpg'}
                  
                 ],
     
@@ -42,7 +51,7 @@ export const initialState = {
                 [
                         {
                             User:{ nickname: '크리스 범스테드',},
-                            content: '너는 벌크좀해라',
+                            content: 'Lifetime Natural..🔥🔥',
                         },
                         {
                             User:{ nickname: '간고',},
@@ -69,7 +78,10 @@ const dummyPost = {
 
     },
     content :  '상급 노하우 공유합니다 O10-o123-43o3 톡 문의 ',
-    Images: [],
+    Images: [
+
+
+    ],
     Comments : []
 
 }
